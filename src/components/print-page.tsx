@@ -15,10 +15,13 @@ const styles = {
   wrap: css({
     boxSizing: 'border-box',
     width: '210mm',
-    minHeight: '297mm',
+    height: '297mm',
+    p: '10mm',
     bg: 'gray.200',
   }),
   inner: css({
-    p: '10mm',
+    overflow: 'hidden',
+    width: 'calc(210mm - 10mm * 2)',
+    height: 'calc(297mm - 10mm * 2)',
   }),
 };
