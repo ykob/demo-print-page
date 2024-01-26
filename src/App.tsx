@@ -1,135 +1,26 @@
-import { useEffect, useRef } from 'react';
-import { PrintPage, PrintPageWrap } from '~/components/';
+import { Fragment, useRef } from 'react';
+import { PrintPage, PrintPageColumn, PrintPageWrap } from '~/components/';
+import { pageContent } from '~/constants/';
 
 export default function App() {
   const ref = useRef<HTMLDivElement>(null);
-  const splitted = useRef<Element[]>([]);
-
-  useEffect(() => {
-    splitted.current = [];
-    Array.from(ref.current!.children).map((child) => {
-      splitted.current.push(child);
-    });
-    console.log('useEffect', splitted.current);
-  }, []);
 
   return (
     <div>
       <PrintPageWrap>
         <PrintPage>
           <div ref={ref}>
-            <h1>Print Page</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-              <span>aaa</span>
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-              voluptates, voluptatum, quae, quas quibusdam quidem voluptatibus
-              voluptatem dolorum voluptate natus fugiat. Quisquam, voluptate
-              voluptatum. Quisquam, voluptate voluptatum.
-            </p>
+            {pageContent.map((content, index) => (
+              <Fragment key={index}>{content}</Fragment>
+            ))}
           </div>
         </PrintPage>
+        <PrintPageColumn>
+          {pageContent.map((content, index) => (
+            <PrintPage key={index}>{content}</PrintPage>
+          ))}
+        </PrintPageColumn>
       </PrintPageWrap>
-      <div>
-        {ref.current && (
-          <div dangerouslySetInnerHTML={{ __html: ref.current.outerHTML }} />
-        )}
-      </div>
     </div>
   );
 }

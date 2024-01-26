@@ -3,7 +3,7 @@ import { css, cx } from 'styled-system/css';
 
 type PrintPageProps = ComponentProps<'div'>;
 
-export function PrintPageWrap({
+export function PrintPageColumn({
   children,
   className,
   ...props
@@ -18,8 +18,7 @@ export function PrintPageWrap({
 const styles = {
   wrap: css({
     display: 'flex',
-    gap: 8,
-    p: 8,
-    bg: 'gray.900',
+    flexDirection: 'column',
+    gap: 4,
   }),
 };
