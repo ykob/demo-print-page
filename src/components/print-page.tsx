@@ -6,7 +6,7 @@ type PrintPageProps = ComponentProps<'div'>;
 export function PrintPage({ children, className, ...props }: PrintPageProps) {
   return (
     <div className={cx(styles.wrap, className)} {...props}>
-      <div className={styles.inner}>{children}</div>
+      {children}
     </div>
   );
 }
@@ -18,10 +18,5 @@ const styles = {
     height: '297mm',
     p: '10mm',
     bg: 'gray.200',
-  }),
-  inner: css({
-    overflow: 'hidden',
-    width: 'calc(210mm - 10mm * 2)',
-    height: 'calc(297mm - 10mm * 2)',
   }),
 };
