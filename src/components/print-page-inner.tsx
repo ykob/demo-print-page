@@ -21,7 +21,7 @@ const styles = {
     width: 'calc(210mm - 10mm * 2)',
     height: 'calc(297mm - 10mm * 2)',
     '& p': {
-      pt: 8,
+      pb: 8,
     },
   }),
 };

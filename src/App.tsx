@@ -25,7 +25,7 @@ export default function App() {
 
     children.forEach((child, i) => {
       const childRect = child.getBoundingClientRect();
-      if (childRect.bottom - offsetTop > rect.height) {
+      if (childRect.bottom - offsetTop > rect.bottom) {
         contents.push([]);
         index += 1;
         offsetTop = childRect.top;
